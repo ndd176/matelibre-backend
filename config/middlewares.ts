@@ -1,3 +1,8 @@
+const isProd = process.env.NODE_ENV === 'production';
+const allowedOrigins = isProd
+  ? ['https://nekonui.site']
+  : ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'];
+
 export default [
   'strapi::logger',
   'strapi::errors',
@@ -7,7 +12,7 @@ export default [
     config: {
       enabled: true,
       headers: '*',
-      origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002']
+      origin: allowedOrigins
     }
   },
   'strapi::poweredBy',
@@ -17,3 +22,4 @@ export default [
   'strapi::favicon',
   'strapi::public',
 ];
+
