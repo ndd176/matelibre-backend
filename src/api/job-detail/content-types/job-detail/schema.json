@@ -20,8 +20,14 @@
     "salary_range": {
       "type": "string"
     },
-    "description": {
-      "type": "blocks"
+    "question_1": {
+      "type": "text"
+    },
+    "question_2": {
+      "type": "text"
+    },
+    "question_3": {
+      "type": "text"
     },
     "job_image": {
       "type": "media",

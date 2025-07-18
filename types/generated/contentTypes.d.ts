@@ -424,7 +424,6 @@ export interface ApiJobDetailJobDetail extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks;
     job: Schema.Attribute.Relation<'oneToOne', 'api::job.job'>;
     job_image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     job_title: Schema.Attribute.String;
@@ -435,6 +434,9 @@ export interface ApiJobDetailJobDetail extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    question_1: Schema.Attribute.Text;
+    question_2: Schema.Attribute.Text;
+    question_3: Schema.Attribute.Text;
     salary_range: Schema.Attribute.String;
     text_icon: Schema.Attribute.JSON;
     updatedAt: Schema.Attribute.DateTime;
