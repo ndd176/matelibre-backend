@@ -14,19 +14,16 @@
     "job_title": {
       "type": "string"
     },
-    "text_icon": {
-      "type": "json"
-    },
     "salary_range": {
       "type": "string"
     },
-    "question_1": {
+    "overview": {
       "type": "text"
     },
-    "question_2": {
+    "requirements": {
       "type": "text"
     },
-    "question_3": {
+    "benefits": {
       "type": "text"
     },
     "job_image": {
@@ -43,6 +40,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::job.job"
+    },
+    "years_experience": {
+      "type": "integer"
+    },
+    "level": {
+      "type": "string"
     }
   }
 }

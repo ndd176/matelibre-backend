@@ -404,6 +404,7 @@ export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    type: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -421,27 +422,28 @@ export interface ApiJobDetailJobDetail extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    benefits: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     job: Schema.Attribute.Relation<'oneToOne', 'api::job.job'>;
     job_image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     job_title: Schema.Attribute.String;
+    level: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::job-detail.job-detail'
     > &
       Schema.Attribute.Private;
+    overview: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
-    question_1: Schema.Attribute.Text;
-    question_2: Schema.Attribute.Text;
-    question_3: Schema.Attribute.Text;
+    requirements: Schema.Attribute.Text;
     salary_range: Schema.Attribute.String;
-    text_icon: Schema.Attribute.JSON;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    years_experience: Schema.Attribute.Integer;
   };
 }
 
