@@ -11,10 +11,18 @@ export default [
     name: 'strapi::cors',
     config: {
       enabled: true,
-      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
-      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       origin: allowedOrigins,
-      credentials: true
+      credentials: true,
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+      headers: [
+        'Content-Type',
+        'Authorization',
+        'Origin',
+        'Accept',
+        'X-Requested-With',
+        'Access-Control-Allow-Origin',
+        'Access-Control-Allow-Credentials'
+      ]
     }
   },
   'strapi::poweredBy',
@@ -24,4 +32,3 @@ export default [
   'strapi::favicon',
   'strapi::public',
 ];
-
