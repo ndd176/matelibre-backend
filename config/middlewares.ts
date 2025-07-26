@@ -1,7 +1,12 @@
 const isProd = process.env.NODE_ENV === 'production';
+
 const allowedOrigins = isProd
   ? ['https://ethanecom.com', 'https://www.ethanecom.com']
-  : ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://127.0.0.1:3000'];
+  : [
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'http://127.0.0.1:3000',
+    ];
 
 export default [
   'strapi::logger',
@@ -20,10 +25,8 @@ export default [
         'Origin',
         'Accept',
         'X-Requested-With',
-        'Access-Control-Allow-Origin',
-        'Access-Control-Allow-Credentials'
-      ]
-    }
+      ],
+    },
   },
   'strapi::poweredBy',
   'strapi::query',
