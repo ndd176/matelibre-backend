@@ -1,7 +1,7 @@
 const isProd = process.env.NODE_ENV === 'production';
 const allowedOrigins = isProd
-  ? ['https://ethanecom.com']
-  : ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'];
+  ? ['https://ethanecom.com', 'https://www.ethanecom.com']
+  : ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://127.0.0.1:3000'];
 
 export default [
   'strapi::logger',
@@ -11,8 +11,10 @@ export default [
     name: 'strapi::cors',
     config: {
       enabled: true,
-      headers: '*',
-      origin: allowedOrigins
+      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+      origin: allowedOrigins,
+      credentials: true
     }
   },
   'strapi::poweredBy',
