@@ -373,6 +373,41 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEventImageEventImage extends Struct.CollectionTypeSchema {
+  collectionName: 'event_images';
+  info: {
+    description: 'Images for events gallery';
+    displayName: 'Event Image';
+    pluralName: 'event-images';
+    singularName: 'event-image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    event_img: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::event-image.event-image'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
   collectionName: 'hero_slides';
   info: {
@@ -1091,6 +1126,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::event-image.event-image': ApiEventImageEventImage;
       'api::hero-slide.hero-slide': ApiHeroSlideHeroSlide;
       'api::job-detail.job-detail': ApiJobDetailJobDetail;
       'api::job-position.job-position': ApiJobPositionJobPosition;
